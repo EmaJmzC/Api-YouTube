@@ -15,14 +15,21 @@ namespace VistarRazor.Pages.Videos
             _configuracion = configuracion;
         }
         public IList<Video> videos { get; set; } = default!;
-        [HttpGet("{id}")]
-        public async Task OnGet(string id)
+        public string SearchTerm { get; set; }
+
+        public async Task OnGet(string searchTerm)
         {
+            SearchTerm = searchTerm;
+
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                return;
+            }
             string endPoint = _configuracion.ObtenerEndPoint("ObtenerVideos");
+            string url = string.Format(endPoint, searchTerm);
             var cliente = new HttpClient();
-            var solicitud = new HttpRequestMessage(HttpMethod.Get, string.Format(endPoint, id));
+            var solicitud = new HttpRequestMessage(HttpMethod.Get, url);
             var respuesta = await cliente.SendAsync(solicitud);
-            respuesta.EnsureSuccessStatusCode();
             var resultado = await respuesta.Content.ReadAsStringAsync();
             var options = new JsonSerializerOptions
             {
