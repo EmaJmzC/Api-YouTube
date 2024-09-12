@@ -50,6 +50,20 @@
         padding-top: 10px;
     }
 
+    .modal-content {
+        border-radius: 10px;
+    }
+
+    .btn-ver-video {
+        background-color: green;
+        color: white;
+    }
+
+    .btn-cerrar {
+        background-color: red;
+        color: white;
+    }
+
 </style>
 
 <div class="container">
@@ -68,7 +82,6 @@
     </div>
     <hr></hr>
 </div>
-
 
 <!-- Grid-->
 @if (Model.videos != null && Model.videos.Count > 0)
@@ -94,7 +107,7 @@
 
             <!-- Modal-->
             <div class="portfolio-modal modal fade" id="portfolioModal_@video.Id" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
                         <div class="container">
@@ -108,14 +121,14 @@
                                         <p>@video.Descripción</p>
                                         <ul class="list-inline">
                                             <li>
-                                                <strong>Fecha de publicación:</strong> @video.Fecha
+                                                <strong>Fecha de publicación:</strong> @video.Fecha.ToString("dd/MM/yyyy")
                                             </li>
                                         </ul>
-                                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <button class="btn btn-ver-video btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                             <i class="fas fa-play me-1"></i>
                                             <a class="card-title" style="color:white" asp-page="./Detalle" asp-route-id="@video.Id">Ver video</a>
                                         </button>
-                                        <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <button class="btn btn-cerrar btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
                                             <i class="fas fa-xmark me-1"></i>
                                             Cerrar
                                         </button>
