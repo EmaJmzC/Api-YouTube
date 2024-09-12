@@ -11,14 +11,6 @@ builder.Services.AddScoped<Configuracion>();
 
 var app = builder.Build();
 
-/*builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
-{
-    options.LoginPath = "cuenta/Login";
-    options.AccessDeniedPath = "cuenta/AccessDenied";
-
-});*/
-
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
