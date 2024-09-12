@@ -2,18 +2,28 @@
 @model VistarRazor.Pages.Videos.IndexModel
 @{
 }
-<div>
-    <h2>Videos recomendados</h2>
-    <hr></hr>
-</div>
+
+<head>
+    <!-- Otras etiquetas head -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
 
 <!-- Barra de búsqueda -->
-<div>
-    <form method="get">
-        <input type="text" name="searchTerm" placeholder="Buscar videos..." value="@Model.SearchTerm" />
-        <button type="submit">Buscar</button>
+<div class="d-flex justify-content-center my-4">
+    <form class="form-inline" method="get">
+        <div class="input-group">
+            <input type="text" class="form-control" name="searchTerm" placeholder="Buscar videos..." value="@Model.SearchTerm" />
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Buscar</button>
+            </div>
+        </div>
     </form>
 </div>
+
+<hr />
+
+<br />
 
 <!-- Grid-->
 @if (Model.videos != null && Model.videos.Count > 0)
@@ -22,7 +32,7 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Videos recomendados</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <br>
             </div>
             <div class="row">
                 @foreach (var video in Model.videos)
