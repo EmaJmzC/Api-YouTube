@@ -107,31 +107,34 @@
 
             <!-- Modal-->
             <div class="portfolio-modal modal fade" id="portfolioModal_@video.Id" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
-                        <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
-                                    <div class="modal-body">
+                                    <div class="modal-body p-4">
                                         <!-- Project details-->
-                                        <h2 class="text-uppercase">@video.Nombre</h2>
-                                        <p class="item-intro text-muted">@video.Canal</p>
-                                        <img class="img-fluid d-block mx-auto" src="@video.Miniatura" alt="..." />
-                                        <p>@video.Descripción</p>
-                                        <ul class="list-inline">
+                                        <h2 class="text-uppercase text-center mb-3">@video.Nombre</h2>
+                                        <p class="item-intro text-muted text-center">@video.Canal</p>
+                                        <img class="img-fluid d-block mx-auto rounded shadow mb-4" src="@video.Miniatura" alt="Miniatura de @video.Nombre" />
+                                        <hr />
+                                        <p class="mb-4 text-justify">@video.Descripción</p>
+                                        <ul class="list-inline text-center">
                                             <li>
                                                 <strong>Fecha de publicación:</strong> @video.Fecha.ToString("dd/MM/yyyy")
                                             </li>
                                         </ul>
-                                        <button class="btn btn-ver-video btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                            <i class="fas fa-play me-1"></i>
-                                            <a class="card-title" style="color:white" asp-page="./Detalle" asp-route-id="@video.Id">Ver video</a>
-                                        </button>
-                                        <button class="btn btn-cerrar btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                            <i class="fas fa-xmark me-1"></i>
-                                            Cerrar
-                                        </button>
+                                        <hr />
+                                        <div class="d-flex justify-content-center mt-4">
+                                            <a class="btn btn-outline-success mx-2" asp-page="./Detalle" asp-route-id="@video.Id">
+                                                <i class="fas fa-play me-1"></i> Ver video
+                                            </a>
+
+                                            <button class="btn btn-outline-danger mx-2" data-bs-dismiss="modal" type="button">
+                                                <i class="fas fa-xmark me-1"></i> Volver
+                                            </button>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -139,6 +142,7 @@
                     </div>
                 </div>
             </div>
+
         }
     </div>
 }

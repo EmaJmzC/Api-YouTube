@@ -28,4 +28,6 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+app.MapFallbackToPage("/Videos/Index");
+
 app.Run();
